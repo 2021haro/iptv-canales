@@ -19,7 +19,7 @@ with sync_playwright() as p:
         context = browser.new_context()
         page = context.new_page()
         
-        # Usamos un diccionario para almacenar el estado y evitar problemas de scope
+        # Diccionario de estado para evitar problemas de scope
         estado = {"stream_url": None}
 
         # Función para interceptar las peticiones de red del reproductor
@@ -34,9 +34,10 @@ with sync_playwright() as p:
 
         try:
             # Navegamos a la web del canal
-            page.goto(url, timeout=50000)
-            # Damos unos segundos para que el reproductor cargue los tokens dinámicos
-            time.sleep(12)
+            page.goto(url, timeout=60000)
+            # Damos 40 segundos para rebasar el anuncio de 30s y atrapar el streaming real
+            print("Esperando a que pase el anuncio publicitario y cargue el canal...")
+            time.sleep(40)
         except Exception as e:
             print(f"Error al procesar {nombre}: {e}")
 
