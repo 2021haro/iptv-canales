@@ -1,64 +1,26 @@
-import time
-from playwright.sync_api import sync_playwright
+import requests
 
+# Enlaces directos oficiales de los canales de Multimedios (Mediastream CDN)
 canales = {
-    "Canal 6 Monterrey": "https://www.multimediostv.com/en-vivo/monterrey",
-    "Canal 6 Saltillo": "https://www.multimediostv.com/en-vivo/saltillo",
-    "Canal 6 CDMX": "https://www.multimediostv.com/en-vivo/cdmx"
+    "Canal 6 Monterrey": "https://mdstrm.com/live-stream-playlist/57b4dbf5dbbfc8f16bb63ce1.m3u8",
+    "Canal 6 Saltillo": "https://mdstrm.com/live-stream-playlist/5d5d51a4e9a40e25f4a0332c.m3u8",
+    "Canal 6 CDMX": "https://mdstrm.com/live-stream-playlist/5f2d9d6ff17144074bd8a284.m3u8"
 }
 
 enlaces_capturados = []
 
-with sync_playwright() as p:
-    # Lanzamos el navegador permitiendo autoplay sin restricciones de usuario
-    browser = p.chromium.launch(
-        headless=True,
-        args=["--autoplay-policy=no-user-gesture-required"]
-    )
-    
-    for nombre, url in canales.items():
-        print(f"Analizando: {nombre}...")
-        # Creamos un contexto simulando un navegador de PC real (User-Agent)
-        context = browser.new_context(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-        )
-        page = context.new_page()
-        
-        estado = {"stream_url": None}
-
-        def capturar_red(request):
-            req_url = request.url
-            # Filtro optimizado para capturar cualquier manifiesto de Mediastream
-            if "mdstrm.com" in req_url and (".m3u8" in req_url or "manifest" in req_url or "playlist" in req_url):
-                print(f"¡Enlace detectado!: {req_url}")
-                estado["stream_url"] = req_url
-
-        page.on("request", capturar_red)
-
-        try:
-            page.goto(url, timeout=60000)
-            time.sleep(5)
-            
-            # Intentamos hacer clic en el reproductor por si requiere interacción para arrancar
-            try:
-                page.click("video, .play-button, .jw-display-icon-container, button", timeout=5000)
-            except:
-                pass
-                
-            print("Esperando a que pase la publicidad y cargue el streaming...")
-            time.sleep(30)
-        except Exception as e:
-            print(f"Error al procesar {nombre}: {e}")
-
-        if estado["stream_url"]:
-            print(f"[OK] Enlace obtenido para {nombre}")
-            enlaces_capturados.append((nombre, estado["stream_url"]))
+for nombre, url in canales.items():
+    print(f"Verificando canal: {nombre}...")
+    try:
+        # Hacemos una petición rápida para confirmar que el servidor responde
+        response = requests.get(url, timeout=15)
+        if response.status_code == 200:
+            print(f"[OK] {nombre} verificado correctamente.")
+            enlaces_capturados.append((nombre, url))
         else:
-            print(f"[X] No se pudo capturar el enlace para {nombre}")
-            
-        context.close()
-
-    browser.close()
+            print(f"[X] {nombre} no disponible (Código {response.status_code})")
+    except Exception as e:
+        print(f"Error al conectar con {nombre}: {e}")
 
 # Construimos el contenido del archivo M3U unificado
 contenido_m3u = "#EXTM3U\n"
