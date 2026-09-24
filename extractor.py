@@ -1,4 +1,4 @@
-# Lista IPTV definitiva con todos los canales estables y permanentes (Sin expiración)
+# Lista IPTV definitiva con todos los canales estables y permanentes
 contenido_m3u = """#EXTM3U
 #EXTINF:-1,Canal 6 Monterrey
 https://mdstrm.com/live-stream-playlist/57b4dbf5dbbfc8f16bb63ce1.m3u8
@@ -22,10 +22,16 @@ https://mdstrm.com/live-stream-playlist/60b578b060947317de7b57ac.m3u8
 https://mdstrm.com/live-stream-playlist/62f2c855f7981b5a5a2d8763.m3u8
 #EXTINF:-1,Canal Once CDMX
 https://vivo.canaloncelive.tv/secureoncedos/oncedigital/chunklist.m3u8
+#EXTINF:-1,Canal del Congreso (45.1)
+https://ccstreaming.packet.mx/WebRTCAppEE/streams/45.1_kd5oiNTTWO0gEOFc431277834_480p1000kbps.m3u8
+#EXTINF:-1,Canal del Congreso (45.2)
+https://ccstreaming.packet.mx/WebRTCAppEE/streams/45.2_kd5oiNTTWO0gEOFc423456787er_480p1000kbps.m3u8
+#EXTINF:-1,Canal del Congreso (45.3)
+https://ccstreaming.packet.mx/WebRTCAppEE/streams/45.3_kd5oiNTTWO0gEOFc875423kf52.m3u8
 """
 
 # Guardamos el resultado en playlist.m3u
 with open("playlist.m3u", "w", encoding="utf-8") as f:
     f.write(contenido_m3u)
 
-print("¡Archivo playlist.m3u actualizado con Canal Once correctamente!")
+print("¡Archivo playlist.m3u actualizado con éxito!")
