@@ -1,4 +1,4 @@
-# Lista IPTV definitiva con Las Estrellas, N+ y canales estables
+# Lista IPTV definitiva con Las Estrellas, N+ y canales estables (incluyendo México -2R)
 contenido_m3u = """#EXTM3U
 #EXTINF:-1,Las Estrellas
 https://channel01-onlymex.akamaized.net/hls/live/2022749/event01/index.m3u8
@@ -51,10 +51,32 @@ https://ccstreaming.packet.mx/WebRTCAppEE/streams/45.1_kd5oiNTTWO0gEOFc431277834
 https://ccstreaming.packet.mx/WebRTCAppEE/streams/45.2_kd5oiNTTWO0gEOFc423456787er_480p1000kbps.m3u8
 #EXTINF:-1,Canal del Congreso (45.3)
 https://ccstreaming.packet.mx/WebRTCAppEE/streams/45.3_kd5oiNTTWO0gEOFc875423kf52.m3u8
+
+# --- Canales de México (Revisión -2R) ---
+#EXTINF:-1 group-title="México", Imagen TV Plus-2R
+https://otteravision.com/live/image-tv-plus/playlist.m3u8
+#EXTINF:-1 group-title="México", Canal Once Internacional-2R
+https://vivo.canaloncelive.tv/hls/canal_once.m3u8
+#EXTINF:-1 group-title="México", Clic TV (TV Azteca)-2R
+https://amagi.tv/playlist/clictv.m3u8
+#EXTINF:-1 group-title="México", Estrella TV-2R
+https://amagi.tv/playlist/estrellatv.m3u8
+#EXTINF:-1 group-title="México", Azteca Internacional-2R
+https://amagi.tv/playlist/aztecainternacional.m3u8
+#EXTINF:-1 group-title="México", Corazón TV Azteca-2R
+https://amagi.tv/playlist/corazon.m3u8
+#EXTINF:-1 group-title="México", Mexiquense TV-2R
+https://streaming.tvmexiquense.gob.mx/live/livestream/playlist.m3u8
+#EXTINF:-1 group-title="México", TV Cuatro-2R
+https://tv4.guanajuato.gob.mx/hls/live/index.m3u8
+#EXTINF:-1 group-title="México", TV Más-2R
+https://tvmas.mx/vivo/index.m3u8
+#EXTINF:-1 group-title="México", Canal 44-2R
+https://canal44.com/vivo/index.m3u8
 """
 
 # Guardamos el resultado en playlist.m3u
 with open("playlist.m3u", "w", encoding="utf-8") as f:
     f.write(contenido_m3u)
 
-print("¡Archivo playlist.m3u actualizado con DW (Índice Maestro) con éxito!")
+print("¡Archivo playlist.m3u actualizado con éxito con los canales de México (-2R)!")
