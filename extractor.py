@@ -1,7 +1,20 @@
-# Lista IPTV definitiva con todos los canales estables y permanentes
+# Lista IPTV definitiva con Las Estrellas, N+ y canales estables
 contenido_m3u = """#EXTM3U
 #EXTINF:-1,Las Estrellas
 https://channel01-onlymex.akamaized.net/hls/live/2022749/event01/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://i.imgur.com/TwBa344.png" group-title="Informativos", N+ (Nacional)
+https://nomvauth.univision.com/api/v3/akamai-auth/token-auth?url=https://channel07secure.akamaized.net/hls/live/2036971-b/event01/index.m3u8&redirect=true
+
+#EXTINF:-1 tvg-logo="https://i.imgur.com/dDFrONz.png" group-title="Informativos", N+ Foro (Televisa) (Nacional)
+https://notusaauth.univision.com/api/v3/akamai-auth/token-auth?url=https://channel02secure-notusa.akamaized.net/hls/live/2023914-b/event01/index.m3u8&redirect=true
+
+#EXTINF:-1 tvg-logo="https://i.imgur.com/TwBa344.png" group-title="Informativos", N+ Monterrey (Nuevo León)
+https://notusaauth.univision.com/api/v3/akamai-auth/token-auth?url=https://channel09secure-notusa.akamaized.net/hls/live/2094418-b/event01/index.m3u8&redirect=true
+
+#EXTINF:-1 tvg-logo="https://i.imgur.com/IrimbhT.png" group-title="Informativos", N+ Guadalajara (Jalisco)
+https://notusaauth.univision.com/api/v3/akamai-auth/token-auth?url=https://channel08secure-notusa.akamaized.net/hls/live/2037034-b/event01/index.m3u8&redirect=true
+
 #EXTINF:-1,Canal 6 Monterrey
 https://mdstrm.com/live-stream-playlist/57b4dbf5dbbfc8f16bb63ce1.m3u8
 #EXTINF:-1,Canal 6 CDMX
@@ -25,7 +38,7 @@ https://mdstrm.com/live-stream-playlist/60b578b060947317de7b57ac.m3u8
 #EXTINF:-1,RT TV Español
 https://rt-esp.rttv.com/dvr/rtesp/playlist_800Kb.m3u8
 #EXTINF:-1,DW Español
-https://dwamdstream104.akamaized.net/hls/live/2015530/dwstream104/stream03/streamPlaylist.m3u8
+https://dwamdstream104.akamaized.net/hls/live/2015530/dwstream104/index.m3u8
 #EXTINF:-1,Telefórmula
 https://mdstrm.com/live-stream-playlist/62f2c855f7981b5a5a2d8763.m3u8
 #EXTINF:-1,adn40 Noticias
@@ -44,4 +57,4 @@ https://ccstreaming.packet.mx/WebRTCAppEE/streams/45.3_kd5oiNTTWO0gEOFc875423kf5
 with open("playlist.m3u", "w", encoding="utf-8") as f:
     f.write(contenido_m3u)
 
-print("¡Archivo playlist.m3u actualizado con Las Estrellas con éxito!")
+print("¡Archivo playlist.m3u actualizado con DW (Índice Maestro) con éxito!")
