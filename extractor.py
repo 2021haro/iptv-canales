@@ -1,5 +1,7 @@
 # Lista IPTV definitiva con todos los canales estables y permanentes
 contenido_m3u = """#EXTM3U
+#EXTINF:-1,Las Estrellas
+https://channel01-onlymex.akamaized.net/hls/live/2022749/event01/index.m3u8
 #EXTINF:-1,Canal 6 Monterrey
 https://mdstrm.com/live-stream-playlist/57b4dbf5dbbfc8f16bb63ce1.m3u8
 #EXTINF:-1,Canal 6 CDMX
@@ -14,6 +16,8 @@ https://mdstrm.com/live-stream-playlist/5d4b0fec848918070128c8cb.m3u8
 https://mdstrm.com/live-stream-playlist/57bf686a61ff39e1085d43e1.m3u8
 #EXTINF:-1,Canal 6 Saltillo
 https://mdstrm.com/live-stream-playlist/5d5d51a4e9a40e25f4a0332c.m3u8
+#EXTINF:-1,RCG Noticias Saltillo
+https://video1.getstreamhosting.com:1936/8172/8172/chunklist_w961798368.m3u8
 #EXTINF:-1,Teleritmo
 https://mdstrm.com/live-stream-playlist/57b4dc126338448314449d0c.m3u8
 #EXTINF:-1,CGTN Español
@@ -40,4 +44,4 @@ https://ccstreaming.packet.mx/WebRTCAppEE/streams/45.3_kd5oiNTTWO0gEOFc875423kf5
 with open("playlist.m3u", "w", encoding="utf-8") as f:
     f.write(contenido_m3u)
 
-print("¡Archivo playlist.m3u actualizado con France 24 correctamente!")
+print("¡Archivo playlist.m3u actualizado con Las Estrellas con éxito!")
