@@ -1,4 +1,6 @@
 #EXTM3U
+#EXTINF:-1,Las Estrellas
+https://channel01-onlymex.akamaized.net/hls/live/2022749/event01/index.m3u8
 #EXTINF:-1,Canal 6 Monterrey
 https://mdstrm.com/live-stream-playlist/57b4dbf5dbbfc8f16bb63ce1.m3u8
 #EXTINF:-1,Canal 6 CDMX
@@ -13,6 +15,8 @@ https://mdstrm.com/live-stream-playlist/5d4b0fec848918070128c8cb.m3u8
 https://mdstrm.com/live-stream-playlist/57bf686a61ff39e1085d43e1.m3u8
 #EXTINF:-1,Canal 6 Saltillo
 https://mdstrm.com/live-stream-playlist/5d5d51a4e9a40e25f4a0332c.m3u8
+#EXTINF:-1,RCG Noticias Saltillo
+https://video1.getstreamhosting.com:1936/8172/8172/chunklist_w961798368.m3u8
 #EXTINF:-1,Teleritmo
 https://mdstrm.com/live-stream-playlist/57b4dc126338448314449d0c.m3u8
 #EXTINF:-1,CGTN Español
@@ -21,8 +25,6 @@ https://mdstrm.com/live-stream-playlist/60b578b060947317de7b57ac.m3u8
 https://rt-esp.rttv.com/dvr/rtesp/playlist_800Kb.m3u8
 #EXTINF:-1,DW Español
 https://dwamdstream104.akamaized.net/hls/live/2015530/dwstream104/stream03/streamPlaylist.m3u8
-#EXTINF:-1,France 24 Español
-https://france24-livehls.akamaized.net/hls/live/2013867/F24_ES_HI_HLS/master.m3u8
 #EXTINF:-1,Telefórmula
 https://mdstrm.com/live-stream-playlist/62f2c855f7981b5a5a2d8763.m3u8
 #EXTINF:-1,adn40 Noticias
