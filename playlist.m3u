@@ -1,11 +1,6 @@
-# Lista IPTV definitiva con canales estables y pruebas de N+ Auth
-contenido_m3u = """#EXTM3U
+#EXTM3U
 #EXTINF:-1,Las Estrellas
 https://channel01-onlymex.akamaized.net/hls/live/2022749/event01/index.m3u8
-#EXTINF:-1,N+ (Auth Test 1)
-https://notusaauth.univision.com/api/v3/akamai-auth/token-auth?url=https://channel02secure-notusa.akamaized.net/hls/live/2023914-b/event01/index.m3u8&redirect=true
-#EXTINF:-1,N+ (Auth Test 2)
-https://nomvauth.univision.com/api/v3/akamai-auth/token-auth?url=https://channel07secure.akamaized.net/hls/live/2036971-b/event01/index.m3u8&redirect=true
 #EXTINF:-1,Canal 6 Monterrey
 https://mdstrm.com/live-stream-playlist/57b4dbf5dbbfc8f16bb63ce1.m3u8
 #EXTINF:-1,Canal 6 CDMX
@@ -42,10 +37,3 @@ https://ccstreaming.packet.mx/WebRTCAppEE/streams/45.1_kd5oiNTTWO0gEOFc431277834
 https://ccstreaming.packet.mx/WebRTCAppEE/streams/45.2_kd5oiNTTWO0gEOFc423456787er_480p1000kbps.m3u8
 #EXTINF:-1,Canal del Congreso (45.3)
 https://ccstreaming.packet.mx/WebRTCAppEE/streams/45.3_kd5oiNTTWO0gEOFc875423kf52.m3u8
-"""
-
-# Guardamos el resultado en playlist.m3u
-with open("playlist.m3u", "w", encoding="utf-8") as f:
-    f.write(contenido_m3u)
-
-print("¡Archivo playlist.m3u actualizado con éxito!")
