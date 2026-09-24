@@ -17,7 +17,21 @@ https://mdstrm.com/live-stream-playlist/5d5d51a4e9a40e25f4a0332c.m3u8
 https://mdstrm.com/live-stream-playlist/57b4dc126338448314449d0c.m3u8
 #EXTINF:-1,CGTN Español
 https://mdstrm.com/live-stream-playlist/60b578b060947317de7b57ac.m3u8
+#EXTINF:-1,RT TV Español
+https://rt-esp.rttv.com/dvr/rtesp/playlist_800Kb.m3u8
+#EXTINF:-1,DW Español
+https://dwamdstream104.akamaized.net/hls/live/2015530/dwstream104/stream03/streamPlaylist.m3u8
+#EXTINF:-1,France 24 Español
+https://france24-livehls.akamaized.net/hls/live/2013867/F24_ES_HI_HLS/master.m3u8
 #EXTINF:-1,Telefórmula
 https://mdstrm.com/live-stream-playlist/62f2c855f7981b5a5a2d8763.m3u8
-#EXTINF:-1,N+ Noticieros
-https://channel07dai.akamaized.net/hls/live/2036971-b/event01/index.m3u8?hdnea=st=1790232426~exp=1790232726~acl=*~id=10b15be9-66c4-4245-987c-ed70d86ed3d5~hmac=86860f22f3805bb800c2c4b73cf5ba2a9faadc0113d8b78e09ab56887be25e01&originpath=/linear/hls/pa/event/F1h_jGT-SiyoB_fWQlz4YA/stream/938c98a5-0d5f-4df9-aa99-156a2fff8cec:DLS/master.m3u8
+#EXTINF:-1,adn40 Noticias
+https://mdstrm.com/live-stream-playlist/60b578b060947317de7b57ac.m3u8
+#EXTINF:-1,Canal Once CDMX
+https://vivo.canaloncelive.tv/secureoncedos/oncedigital/chunklist.m3u8
+#EXTINF:-1,Canal del Congreso (45.1)
+https://ccstreaming.packet.mx/WebRTCAppEE/streams/45.1_kd5oiNTTWO0gEOFc431277834_480p1000kbps.m3u8
+#EXTINF:-1,Canal del Congreso (45.2)
+https://ccstreaming.packet.mx/WebRTCAppEE/streams/45.2_kd5oiNTTWO0gEOFc423456787er_480p1000kbps.m3u8
+#EXTINF:-1,Canal del Congreso (45.3)
+https://ccstreaming.packet.mx/WebRTCAppEE/streams/45.3_kd5oiNTTWO0gEOFc875423kf52.m3u8
