@@ -1,7 +1,6 @@
 import time
 from playwright.sync_api import sync_playwright
 
-# Diccionario con los canales y sus páginas web oficiales
 canales = {
     "Canal 6 Monterrey": "https://www.multimediostv.com/en-vivo/monterrey",
     "Canal 6 Saltillo": "https://www.multimediostv.com/en-vivo/saltillo",
@@ -11,33 +10,43 @@ canales = {
 enlaces_capturados = []
 
 with sync_playwright() as p:
-    # Iniciamos el navegador en modo invisible para la nube
-    browser = p.chromium.launch(headless=True)
+    # Lanzamos el navegador permitiendo autoplay sin restricciones de usuario
+    browser = p.chromium.launch(
+        headless=True,
+        args=["--autoplay-policy=no-user-gesture-required"]
+    )
     
     for nombre, url in canales.items():
         print(f"Analizando: {nombre}...")
-        context = browser.new_context()
+        # Creamos un contexto simulando un navegador de PC real (User-Agent)
+        context = browser.new_context(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        )
         page = context.new_page()
         
-        # Diccionario de estado para evitar problemas de scope
         estado = {"stream_url": None}
 
-        # Función para interceptar las peticiones de red del reproductor
         def capturar_red(request):
             req_url = request.url
-            # Buscamos los patrones característicos de streaming HLS/Dash
-            if ".m3u8" in req_url or "manifest" in req_url:
-                if "cdn.mdstrm.com" in req_url or "live" in req_url:
-                    estado["stream_url"] = req_url
+            # Filtro optimizado para capturar cualquier manifiesto de Mediastream
+            if "mdstrm.com" in req_url and (".m3u8" in req_url or "manifest" in req_url or "playlist" in req_url):
+                print(f"¡Enlace detectado!: {req_url}")
+                estado["stream_url"] = req_url
 
         page.on("request", capturar_red)
 
         try:
-            # Navegamos a la web del canal
             page.goto(url, timeout=60000)
-            # Damos 40 segundos para rebasar el anuncio de 30s y atrapar el streaming real
-            print("Esperando a que pase el anuncio publicitario y cargue el canal...")
-            time.sleep(40)
+            time.sleep(5)
+            
+            # Intentamos hacer clic en el reproductor por si requiere interacción para arrancar
+            try:
+                page.click("video, .play-button, .jw-display-icon-container, button", timeout=5000)
+            except:
+                pass
+                
+            print("Esperando a que pase la publicidad y cargue el streaming...")
+            time.sleep(30)
         except Exception as e:
             print(f"Error al procesar {nombre}: {e}")
 
