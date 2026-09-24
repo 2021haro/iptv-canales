@@ -22,6 +22,8 @@ https://mdstrm.com/live-stream-playlist/60b578b060947317de7b57ac.m3u8
 https://rt-esp.rttv.com/dvr/rtesp/playlist_800Kb.m3u8
 #EXTINF:-1,DW Español
 https://dwamdstream104.akamaized.net/hls/live/2015530/dwstream104/stream03/streamPlaylist.m3u8
+#EXTINF:-1,France 24 Español
+https://france24-livehls.akamaized.net/hls/live/2013867/F24_ES_HI_HLS/master.m3u8
 #EXTINF:-1,Telefórmula
 https://mdstrm.com/live-stream-playlist/62f2c855f7981b5a5a2d8763.m3u8
 #EXTINF:-1,adn40 Noticias
@@ -40,4 +42,4 @@ https://ccstreaming.packet.mx/WebRTCAppEE/streams/45.3_kd5oiNTTWO0gEOFc875423kf5
 with open("playlist.m3u", "w", encoding="utf-8") as f:
     f.write(contenido_m3u)
 
-print("¡Archivo playlist.m3u actualizado con DW Español con éxito!")
+print("¡Archivo playlist.m3u actualizado con France 24 correctamente!")
