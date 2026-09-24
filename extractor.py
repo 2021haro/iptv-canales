@@ -2,11 +2,10 @@ import time
 from playwright.sync_api import sync_playwright
 
 # Diccionario con los canales y sus páginas web oficiales
-# (Puedes ajustar las URLs si los canales de Saltillo o CDMX tienen una dirección web distinta)
 canales = {
-    "Canal 6 Monterrey": "https://www.multimediostv.com/en-vivo/monterrey", # Modifica si la URL es específica
-    "Canal 6 Saltillo": "https://www.multimediostv.com/en-vivo/saltillo", # Modifica si la URL es específica
-    "Canal 6 CDMX": "https://www.multimediostv.com/en-vivo/cdmx"      # Modifica si la URL es específica
+    "Canal 6 Monterrey": "https://www.multimediostv.com/en-vivo/monterrey",
+    "Canal 6 Saltillo": "https://www.multimediostv.com/en-vivo/saltillo",
+    "Canal 6 CDMX": "https://www.multimediostv.com/en-vivo/cdmx"
 }
 
 enlaces_capturados = []
@@ -20,16 +19,16 @@ with sync_playwright() as p:
         context = browser.new_context()
         page = context.new_page()
         
-        stream_url = None
+        # Usamos un diccionario para almacenar el estado y evitar problemas de scope
+        estado = {"stream_url": None}
 
         # Función para interceptar las peticiones de red del reproductor
         def capturar_red(request):
-            nonlocal stream_url
             req_url = request.url
             # Buscamos los patrones característicos de streaming HLS/Dash
             if ".m3u8" in req_url or "manifest" in req_url:
                 if "cdn.mdstrm.com" in req_url or "live" in req_url:
-                    stream_url = req_url
+                    estado["stream_url"] = req_url
 
         page.on("request", capturar_red)
 
@@ -41,9 +40,9 @@ with sync_playwright() as p:
         except Exception as e:
             print(f"Error al procesar {nombre}: {e}")
 
-        if stream_url:
+        if estado["stream_url"]:
             print(f"[OK] Enlace obtenido para {nombre}")
-            enlaces_capturados.append((nombre, stream_url))
+            enlaces_capturados.append((nombre, estado["stream_url"]))
         else:
             print(f"[X] No se pudo capturar el enlace para {nombre}")
             
